@@ -6,20 +6,29 @@
     android:layout_width="fill_parent"
     android:background="@color/white">
     
-    <Button android:id="@+id/Button01" 
+    <!--<Button android:id="@+id/Button01" 
         android:layout_width="match_parent"
 		android:layout_weight="1" 
 		android:layout_gravity="center_vertical"	
 		android:layout_height="0dp" 
 		android:text="Listen"
 		android:onClick="startListening">
-	</Button>
+	</Button> -->
+	
+    <ImageButton android:id="@+id/Button01"
+    android:layout_width="match_parent"
+	android:layout_weight="1" 
+	android:layout_gravity="center_vertical"	
+	android:layout_height="0dp" 
+    android:src="@drawable/startbutton"
+    android:onClick="startListening"
+    />
 
-    <Button android:id="@+id/Button02" android:layout_width="match_parent"
+    <ImageButton android:id="@+id/Button02" android:layout_width="match_parent"
 	android:layout_weight="1"
 	android:layout_height="0dp"
 	android:layout_gravity="center_horizontal" 
-	android:text="Stats"
+	android:src="@drawable/statsbutton"
 	android:onClick="seeStats">
-	</Button>
+	</ImageButton>
 </LinearLayout>

@@ -1,6 +1,7 @@
 package edu.cmu.pocketsphinx.demo;
 
 import java.util.Date;
+import java.util.concurrent.Semaphore;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class PocketSphinxAndroidDemo extends Activity implements OnClickListener, RecognitionListener {
@@ -52,6 +54,7 @@ public class PocketSphinxAndroidDemo extends Activity implements OnClickListener
 	 * Editable text view.
 	 */
 	EditText edit_text;
+	
 	
 	/**
 	 * Respond to touch events on the Speak button.
@@ -98,9 +101,6 @@ public class PocketSphinxAndroidDemo extends Activity implements OnClickListener
 		this.rec = new RecognizerTask();
 		this.rec_thread = new Thread(this.rec);
 		this.listening = false;
-		Button b1 = (Button) findViewById(R.id.Button01);
-		Button b2 = (Button) findViewById(R.id.Button02);
-		
 		//b1.setOnClickListener(this);
 		
 		
@@ -112,16 +112,14 @@ public class PocketSphinxAndroidDemo extends Activity implements OnClickListener
 	}
 	
 	public void seeStats(View v){
-		Button b2 = (Button) findViewById(R.id.Button02);
-		b2.setText("hello world");
+		ImageButton b2 = (ImageButton) findViewById(R.id.Button02);
 		
 		//Intent intent = new Intent(this, SeeStatsActivity.class);
 		//startActivity(intent);
 	}
 
 	public void startListening(View v){
-		Button b1 = (Button) findViewById(R.id.Button01);
-		b1.setText("hello world");
+		ImageButton b1 = (ImageButton) findViewById(R.id.Button01);
 		
 		Intent intent = new Intent(this, Listening.class);
 		startActivity(intent);
