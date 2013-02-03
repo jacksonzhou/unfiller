@@ -4,6 +4,9 @@ import java.util.Date;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -13,7 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class PocketSphinxAndroidDemo extends Activity implements OnTouchListener, RecognitionListener {
+public class PocketSphinxAndroidDemo extends Activity implements OnClickListener, RecognitionListener {
 	static {
 		System.loadLibrary("pocketsphinx_jni");
 	}
@@ -95,14 +98,35 @@ public class PocketSphinxAndroidDemo extends Activity implements OnTouchListener
 		this.rec = new RecognizerTask();
 		this.rec_thread = new Thread(this.rec);
 		this.listening = false;
-		Button b = (Button) findViewById(R.id.Button01);
-		b.setOnTouchListener(this);
-		this.performance_text = (TextView) findViewById(R.id.PerformanceText);
-		this.edit_text = (EditText) findViewById(R.id.EditText01);
+		Button b1 = (Button) findViewById(R.id.Button01);
+		Button b2 = (Button) findViewById(R.id.Button02);
+		
+		//b1.setOnClickListener(this);
+		
+		
+		//b.setOnTouchListener(this);
+		//this.performance_text = (TextView) findViewById(R.id.PerformanceText);
+		//this.edit_text = (EditText) findViewById(R.id.EditText01);
 		this.rec.setRecognitionListener(this);
 		this.rec_thread.start();
 	}
+	
+	public void seeStats(View v){
+		Button b2 = (Button) findViewById(R.id.Button02);
+		b2.setText("hello world");
+		
+		//Intent intent = new Intent(this, SeeStatsActivity.class);
+		//startActivity(intent);
+	}
 
+	public void startListening(View v){
+		Button b1 = (Button) findViewById(R.id.Button01);
+		b1.setText("hello world");
+		
+		Intent intent = new Intent(this, Listening.class);
+		startActivity(intent);
+	}
+	
 	/** Called when partial results are generated. */
 	public void onPartialResults(Bundle b) {
 		Log.e("sphinx", "onPartResults");
@@ -144,5 +168,11 @@ public class PocketSphinxAndroidDemo extends Activity implements OnTouchListener
 				that.rec_dialog.dismiss();
 			}
 		});
+	}
+
+	@Override
+	public void onClick(DialogInterface dialog, int which) {
+		// TODO Auto-generated method stub
+		
 	}
 }
