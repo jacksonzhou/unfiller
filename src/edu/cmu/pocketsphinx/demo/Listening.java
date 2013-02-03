@@ -285,7 +285,7 @@ class FlashThread extends Thread{
 
 			@Override
 			public void run() {
-				LinearLayout button = (LinearLayout) activity.findViewById(R.id.blah);
+				ImageButton button = (ImageButton) activity.findViewById(R.id.Button03);
 				button.setBackgroundColor(Color.CYAN);
 			}
 			
@@ -300,7 +300,7 @@ class FlashThread extends Thread{
 
 			@Override
 			public void run() {
-				LinearLayout button = (LinearLayout) activity.findViewById(R.id.blah);
+				ImageButton button = (ImageButton) activity.findViewById(R.id.Button03);
 				button.setBackgroundColor(Color.BLACK);
 			}
 			
